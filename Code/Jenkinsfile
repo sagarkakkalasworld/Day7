@@ -1,0 +1,36 @@
+pipeline {
+    agent any
+
+    environment {
+        BUILD_SERVER_IP = '172.31.4.138'
+    }
+
+    stages {
+        stage('Cleanup and Clone Repository') {
+            steps {
+                script {
+                    // Remove existing Day6 directory and clone the latest repo
+                    sh "ssh ubuntu@${BUILD_SERVER_IP} 'rm -rf /home/ubuntu/Day6 && git clone https://github.com/sagarkakkalasworld/Day6.git /home/ubuntu/Day6'"
+                }
+            }
+        }
+
+        stage('Build Docker images on Build Server') {
+            steps {
+                script {
+                    // Execute Ansible playbook on Build Server
+                    sh "ssh ubuntu@${BUILD_SERVER_IP} 'ansible-playbook /home/ubuntu/Day6/Ansible/build.yaml'"
+                }
+            }
+        }
+
+        stage('Deploy Script on Deploy Server') {
+            steps {
+                script {
+                    // Execute deployment playbook on Deploy Server
+                    sh "ssh ubuntu@${BUILD_SERVER_IP} 'ansible-playbook /home/ubuntu/Day6/Ansible/deploy.yaml'"
+                }
+            }
+        }
+    }
+}
