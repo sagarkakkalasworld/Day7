@@ -6,14 +6,18 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  rules:
+  tls :
+  - hosts :
+      - sagarkakkala.shop
+       secretName : sk-ssl 
+  rules:   
   - host: sagarkakkala.shop
     http:
-      paths:
-      - pathType: Prefix
-        path: /
-        backend:
-          service:
-            name: react-service
-            port:
-              number: 80
+       paths:
+       - pathType: Prefix
+         path: /
+         backend:
+           service:
+             name: react-service
+             port:
+               number: 80
