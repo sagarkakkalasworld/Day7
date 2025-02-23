@@ -11,7 +11,7 @@ spec:
         - sagarkakkala.shop
       secretName: sk-ssl
   rules:
-    - host: www.sagarkakkala.shop
+    - host: sagarkakkala.shop
       http:
         paths:
           - pathType: Prefix
