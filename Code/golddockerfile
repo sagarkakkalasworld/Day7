@@ -1,3 +1,4 @@
+##This is Multi Stage Build
 FROM node:18 AS buildmachine
 WORKDIR /app
 COPY package*.json ./
