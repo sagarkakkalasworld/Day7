@@ -10,20 +10,9 @@ spec:
   tls:
   - hosts:
     - sagarkakkala.shop
-    - www.sagarkakkala.shop
     secretName: sk-ssl
   rules:
   - host: sagarkakkala.shop
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: react-service
-            port:
-              number: 80
-  - host: www.sagarkakkala.shop
     http:
       paths:
       - path: /
