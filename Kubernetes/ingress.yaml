@@ -9,7 +9,7 @@ spec:
   ingressClassName: public
   tls:
   - hosts:
-    - sagarkakkala.shop
+    - www.sagarkakkala.shop
     secretName: sk-ssl
   rules:
   - host: sagarkakkala.shop
