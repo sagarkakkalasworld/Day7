@@ -8,10 +8,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - www.hari-dev.shop
-    secretName: hari-dev-ssl
+    - www.sagarkakkala.shop
+    secretName: sk-ssl
   rules:
-  - host: hari-dev.shop
+  - host: sagarkakkala.shop
     http:
       paths:
       - path: /
