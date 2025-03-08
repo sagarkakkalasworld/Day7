@@ -2,7 +2,8 @@ pipeline {
     agent any
 
     environment {
-        BUILD_SERVER_IP = '172.31.4.138' ##change buildip according to your project setup
+        // Change build server IP acccording to your AWS EC2 Build server Private Ip
+        BUILD_SERVER_IP = '172.31.4.138'
     }
 
     stages {
