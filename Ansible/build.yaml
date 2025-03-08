@@ -4,13 +4,14 @@
   tasks:  
    - name: remove existing bashscripts directory and ignore task if bashscripts folder is not there
      ansible.builtin.shell:
-       cmd: sudo rm -r bashscripts
+       cmd: sudo rm -r /home/ubuntu/bashscripts
      ignore_errors: yes    
        
    - name: create new bashscripts directory
      ansible.builtin.shell:
        cmd: sudo mkdir /home/ubuntu/bashscripts         
-
+     ignore_errors: yes 
+     
    - name: clone bash scripts repo into server
      ansible.builtin.shell:
        cmd: sudo git clone https://github.com/sagarkakkalasworld/Day7.git
